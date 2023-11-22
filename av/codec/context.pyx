@@ -540,6 +540,13 @@ cdef class CodecContext:
             if self.ptr.codec and lib.av_get_profile_name(self.ptr.codec, self.ptr.profile):
                 return lib.av_get_profile_name(self.ptr.codec, self.ptr.profile)
 
+    property profile_int:
+        def __get__(self):
+            return self.ptr.profile
+
+        def __set__(self, value):
+            self.ptr.profile = value
+
     property time_base:
         def __get__(self):
             if self.is_decoder:
