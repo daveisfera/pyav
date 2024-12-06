@@ -71,6 +71,7 @@ cdef class Packet(Buffer):
             return
 
         lib.av_packet_rescale_ts(self.ptr, self._time_base, dst)
+        print(self.ptr.pts, self.ptr.dts)
 
         self._time_base = dst
 
