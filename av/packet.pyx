@@ -66,6 +66,7 @@ cdef class Packet(Buffer):
             self._time_base = dst
             return
 
+        print(self._time_base.num, dst.num, self._time_base.den, dst.den, self.ptr.pts, self.ptr.dts)
         if self._time_base.num == dst.num and self._time_base.den == dst.den:
             return
 
